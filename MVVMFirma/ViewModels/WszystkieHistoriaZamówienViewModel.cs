@@ -11,7 +11,7 @@ using System.Windows.Input;
 namespace MVVMFirma.ViewModels
 {
 
-    public class WszystkieHistoriaZamowienViewModel : WszystkieViewModelBase<HistoriaZamowien>
+    public class WszystkieHistoriaZamowienViewModel : WszystkieViewModel<HistoriaZamowien>
     {
         public WszystkieHistoriaZamowienViewModel() : base("Historia Zamowien") { }
 

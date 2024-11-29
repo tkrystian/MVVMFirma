@@ -11,7 +11,7 @@ using System.Windows.Input;
 namespace MVVMFirma.ViewModels
 {
 
-    public class WszystkieKlienciViewModel : WszystkieViewModelBase<Klienci>
+    public class WszystkieKlienciViewModel : WszystkieViewModel<Klienci>
     {
         public WszystkieKlienciViewModel() : base("Klienci") { }
 

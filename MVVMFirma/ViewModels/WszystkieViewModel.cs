@@ -3,16 +3,17 @@ using MVVMFirma.Models.Entities;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Linq;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MVVMFirma.ViewModels
 {
-    public class WszystkieViewModelBase<T> : WorkspaceViewModel where T : class
+    public class WszystkieViewModel<T> : WorkspaceViewModel where T : class
     {
         #region DB
         protected readonly RestauracjeEntities restauracjeEntities;
         #endregion
 
-        #region LoadCommand
+        #region Command
         private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
@@ -23,9 +24,7 @@ namespace MVVMFirma.ViewModels
                 return _LoadCommand;
             }
         }
-        #endregion
 
-        #region AddCommand
         private BaseCommand _AddCommand;
         public ICommand AddCommand
         {
@@ -36,6 +35,7 @@ namespace MVVMFirma.ViewModels
                 return _AddCommand;
             }
         }
+
         #endregion
 
         #region List
@@ -57,7 +57,7 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Constructor
-        public WszystkieViewModelBase(string displayName)
+        public WszystkieViewModel(string displayName)
         {
             base.DisplayName = displayName;
             restauracjeEntities = new RestauracjeEntities();
@@ -72,11 +72,7 @@ namespace MVVMFirma.ViewModels
 
         private void add()
         {
-            OpenAddWindow();
-        }
-
-        protected virtual void OpenAddWindow(){
-        
+            Messenger.Default.Send(DisplayName + "Add");
         }
         #endregion
     }

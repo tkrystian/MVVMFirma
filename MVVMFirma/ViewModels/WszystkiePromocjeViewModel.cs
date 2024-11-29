@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class WszystkiePromocjeViewModel : WszystkieViewModelBase<Promocje>
+    public class WszystkiePromocjeViewModel : WszystkieViewModel<Promocje>
     {
         public WszystkiePromocjeViewModel() : base("Promocje") { }
 

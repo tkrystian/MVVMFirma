@@ -10,7 +10,7 @@ namespace MVVMFirma.ViewModels
 {
     public class NowyPozycjeZamowieniaViewModel : JedenViewModel<PozycjeZamowienia>
     {
-        public NowyPozycjeZamowieniaViewModel() : base("Nowa Opinia") { }
+        public NowyPozycjeZamowieniaViewModel() : base("Nowa Pozycja Zamowienia") { }
 
 
         public int Ilosc

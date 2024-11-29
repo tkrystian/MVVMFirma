@@ -12,7 +12,7 @@ using MVVMFirma.Views;
 
 namespace MVVMFirma.ViewModels
 {
-    public class WszystkieRestauracjeViewModel : WszystkieViewModelBase<Restauracje>
+    public class WszystkieRestauracjeViewModel : WszystkieViewModel<Restauracje>
     {
         public WszystkieRestauracjeViewModel() : base("Restauracje"){}
     }
