@@ -148,10 +148,22 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\JedenViewModel.cs" />
+    <Compile Include="ViewModels\NowyKategorieMenuViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NowaFakturaViewModel.cs" />
-    <Compile Include="ViewModels\NowaRestauracjaViewModel.cs" />
+    <Compile Include="ViewModels\NowyKlienciViewModel.cs" />
+    <Compile Include="ViewModels\NowyMenuViewModel.cs" />
+    <Compile Include="ViewModels\NowyOpinieViewModel.cs" />
+    <Compile Include="ViewModels\NowyPozycjeZamowieniaViewModel.cs" />
+    <Compile Include="ViewModels\NowyPracownicyViewModel.cs" />
+    <Compile Include="ViewModels\NowyPromocjeViewModel.cs" />
+    <Compile Include="ViewModels\NowyRestauracjaViewModel.cs" />
+    <Compile Include="ViewModels\NowyDostawyViewModel.cs" />
+    <Compile Include="ViewModels\NowyHistoriaZamowienViewModel.cs" />
+    <Compile Include="ViewModels\NowyRezerwacjeViewModel.cs" />
+    <Compile Include="ViewModels\NowyRolePracownikowViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
+    <Compile Include="ViewModels\NowyZamowieniaViewModel.cs" />
     <Compile Include="ViewModels\WszystkieDostawyViewModel.cs" />
     <Compile Include="ViewModels\WszystkieHistoriaZamówienViewModel.cs" />
     <Compile Include="ViewModels\WszystkieKategorieMenuViewModel.cs" />
@@ -168,17 +180,50 @@
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieRestauracjeViewModel.cs" />
     <Compile Include="Views\JedenViewBase.cs" />
+    <Compile Include="Views\NowyKategorieMenuView.xaml.cs">
+      <DependentUpon>NowyKategorieMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NowaFakturaView.xaml.cs">
-      <DependentUpon>NowaFakturaView.xaml</DependentUpon>
+    <Compile Include="Views\NowyDostawyView.xaml.cs">
+      <DependentUpon>NowyDostawyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NowaRestauracjaView.xaml.cs">
-      <DependentUpon>NowaRestauracjaView.xaml</DependentUpon>
+    <Compile Include="Views\NowyHistoriaZamowienView.xaml.cs">
+      <DependentUpon>NowyHistoriaZamowienView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyKlienciView.xaml.cs">
+      <DependentUpon>NowyKlienciView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyMenuView.xaml.cs">
+      <DependentUpon>NowyMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyOpinieView.xaml.cs">
+      <DependentUpon>NowyOpinieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyPozycjeZamowieniaView.xaml.cs">
+      <DependentUpon>NowyPozycjeZamowieniaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyPracownicyView.xaml.cs">
+      <DependentUpon>NowyPracownicyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyPromocjeView.xaml.cs">
+      <DependentUpon>NowyPromocjeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyRestauracjaView.xaml.cs">
+      <DependentUpon>NowyRestauracjaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyRezerwacjeView.xaml.cs">
+      <DependentUpon>NowyRezerwacjeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyRolePracownikowView.xaml.cs">
+      <DependentUpon>NowyRolePracownikowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NowyTowarView.xaml.cs">
       <DependentUpon>NowyTowarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NowyZamowieniaView.xaml.cs">
+      <DependentUpon>NowyZamowieniaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WszystkieDostawyView.xaml.cs">
       <DependentUpon>WszystkieDostawyView.xaml</DependentUpon>
@@ -266,6 +311,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\NowyKategorieMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,15 +323,55 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NowaFakturaView.xaml">
+    <Page Include="Views\NowyDostawyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NowaRestauracjaView.xaml">
+    <Page Include="Views\NowyHistoriaZamowienView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyKlienciView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyOpinieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyPozycjeZamowieniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyPracownicyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyPromocjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyRestauracjaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyRezerwacjeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyRolePracownikowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NowyTowarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NowyZamowieniaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -8,9 +8,9 @@ using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class NowaRestauracjaViewModel : JedenViewModel<Restauracje>
+    public class NowyRestauracjaViewModel : JedenViewModel<Restauracje>
     {
-        public NowaRestauracjaViewModel() : base("Nowa Restauracja") { }
+        public NowyRestauracjaViewModel() : base("Nowa Restauracja") { }
 
         public string Nazwa
         {

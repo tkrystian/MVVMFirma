@@ -3,8 +3,44 @@
                     xmlns:vm="clr-namespace:MVVMFirma.ViewModels"
                     xmlns:vw="clr-namespace:MVVMFirma.Views"
                     >
-    <DataTemplate DataType="{x:Type vm:NowaRestauracjaViewModel}">
-        <vw:NowaRestauracjaView/>
+    <DataTemplate DataType="{x:Type vm:NowyDostawyViewModel}">
+        <vw:NowyDostawyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyHistoriaZamowienViewModel}">
+        <vw:NowyHistoriaZamowienView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyKategorieMenuViewModel}">
+        <vw:NowyKategorieMenuView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyKlienciViewModel}">
+        <vw:NowyKlienciView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyMenuViewModel}">
+        <vw:NowyMenuView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyOpinieViewModel}">
+        <vw:NowyOpinieView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyPozycjeZamowieniaViewModel}">
+        <vw:NowyPozycjeZamowieniaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyPracownicyViewModel}">
+        <vw:NowyPracownicyView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyPromocjeViewModel}">
+        <vw:NowyPromocjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyRestauracjaViewModel}">
+        <vw:NowyRestauracjaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyRezerwacjeViewModel}">
+        <vw:NowyRezerwacjeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyRolePracownikowViewModel}">
+        <vw:NowyRolePracownikowView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:NowyZamowieniaViewModel}">
+        <vw:NowyZamowieniaView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm:WszystkieDostawyViewModel}">
         <vw:WszystkieDostawyView/>

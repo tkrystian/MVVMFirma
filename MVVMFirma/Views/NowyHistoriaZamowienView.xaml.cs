@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views
 {
     /// <summary>
-    /// Interaction logic for NowaFakturaView.xaml
+    /// Interaction logic for NowyHistoriaZamowienView.xaml
     /// </summary>
-    public partial class NowaFakturaView : UserControl
+    public partial class NowyHistoriaZamowienView : JedenViewBase
     {
-        public NowaFakturaView()
+        public NowyHistoriaZamowienView()
         {
             InitializeComponent();
         }

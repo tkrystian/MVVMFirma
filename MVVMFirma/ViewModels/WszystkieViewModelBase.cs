@@ -77,7 +77,6 @@ namespace MVVMFirma.ViewModels
 
         protected virtual void OpenAddWindow(){
         
-
         }
         #endregion
     }

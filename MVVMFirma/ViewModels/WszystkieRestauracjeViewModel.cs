@@ -14,13 +14,7 @@ namespace MVVMFirma.ViewModels
 {
     public class WszystkieRestauracjeViewModel : WszystkieViewModelBase<Restauracje>
     {
-        public WszystkieRestauracjeViewModel() : base("Restauracje") { }
-
-        protected override void OpenAddWindow()
-        {
-            //var newViewModel = new NowaRestauracjaViewModel();
-            //WindowHelper.ShowDialogForViewModel(newViewModel);
-        }
+        public WszystkieRestauracjeViewModel() : base("Restauracje"){}
     }
 }
 
