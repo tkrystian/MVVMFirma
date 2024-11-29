@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="de8b3ee44d90445583c8cbc89dd9513b" Name="Diagram1">
+        <EntityTypeShape EntityType="RestauracjeModel.Dostawy" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.HistoriaZamowien" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.KategorieMenu" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Klienci" Width="1.5" PointX="3.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Menu" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Opinie" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.PozycjeZamowienia" Width="1.5" PointX="8.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Pracownicy" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Promocje" Width="1.5" PointX="3" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Restauracje" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Rezerwacje" Width="1.5" PointX="3" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.RolePracownikow" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RestauracjeModel.Zamowienia" Width="1.5" PointX="3" PointY="25.875" IsExpanded="true" />
+        <AssociationConnector Association="RestauracjeModel.FK__Dostawy__IdResta__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Dostawy__IdZamow__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__HistoriaZ__IdZam__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Opinie__IdKlient__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Menu__IdRestaura__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__PozycjeZa__IdMen__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Opinie__IdRestau__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__PozycjeZa__IdZam__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Pracownic__IdRes__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Promocje__IdRest__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Rezerwacj__IdRes__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.FK__Zamowieni__IdRes__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.MenuKategorie" ManuallyRouted="false" />
+        <AssociationConnector Association="RestauracjeModel.PracownicyRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

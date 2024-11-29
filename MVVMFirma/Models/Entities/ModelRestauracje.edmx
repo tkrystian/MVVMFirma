@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RestauracjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dostawy">
+          <Key>
+            <PropertyRef Name="IdDostawy" />
+          </Key>
+          <Property Name="IdDostawy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="IdZamowienia" Type="int" />
+          <Property Name="AdresDostawy" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataDostawy" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HistoriaZamowien">
+          <Key>
+            <PropertyRef Name="IdHistorii" />
+          </Key>
+          <Property Name="IdHistorii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdZamowienia" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Data" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KategorieMenu">
+          <Key>
+            <PropertyRef Name="IdKategoriaMenu" />
+          </Key>
+          <Property Name="IdKategoriaMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="IdKlienta" />
+          </Key>
+          <Property Name="IdKlienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cena" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MenuKategorie">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+            <PropertyRef Name="IdKategoriaMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="int" Nullable="false" />
+          <Property Name="IdKategoriaMenu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opinie">
+          <Key>
+            <PropertyRef Name="IdOpinii" />
+          </Key>
+          <Property Name="IdOpinii" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="IdKlienta" Type="int" />
+          <Property Name="Ocena" Type="int" />
+          <Property Name="Komentarz" Type="nvarchar" MaxLength="255" />
+          <Property Name="Data" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PozycjeZamowienia">
+          <Key>
+            <PropertyRef Name="IdPozycjaZamowienia" />
+          </Key>
+          <Property Name="IdPozycjaZamowienia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdZamowienia" Type="int" />
+          <Property Name="IdMenu" Type="int" />
+          <Property Name="Ilosc" Type="int" Nullable="false" />
+          <Property Name="Cena" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+          </Key>
+          <Property Name="IdPracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Stanowisko" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PracownicyRole">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+            <PropertyRef Name="IdRoli" />
+          </Key>
+          <Property Name="IdPracownika" Type="int" Nullable="false" />
+          <Property Name="IdRoli" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Promocje">
+          <Key>
+            <PropertyRef Name="IdPromocji" />
+          </Key>
+          <Property Name="IdPromocji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataRozpoczecia" Type="date" Nullable="false" />
+          <Property Name="DataZakonczenia" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Restauracje">
+          <Key>
+            <PropertyRef Name="IdRestauracji" />
+          </Key>
+          <Property Name="IdRestauracji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="GodzinyOtwarcia" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Rezerwacje">
+          <Key>
+            <PropertyRef Name="IdRezerwacji" />
+          </Key>
+          <Property Name="IdRezerwacji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="IdKlienta" Type="int" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Godzina" Type="time" Precision="7" Nullable="false" />
+          <Property Name="LiczbaOsob" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolePracownikow">
+          <Key>
+            <PropertyRef Name="IdRoli" />
+          </Key>
+          <Property Name="IdRoli" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Zamowienia">
+          <Key>
+            <PropertyRef Name="IdZamowienia" />
+          </Key>
+          <Property Name="IdZamowienia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRestauracji" Type="int" />
+          <Property Name="IdKlienta" Type="int" />
+          <Property Name="Data" Type="date" Nullable="false" />
+          <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Dostawy__IdResta__68487DD7">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Dostawy">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy__IdZamow__693CA210">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="Dostawy">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaZ__IdZam__7F2BE32F">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="HistoriaZamowien" Type="Self.HistoriaZamowien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="HistoriaZamowien">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__IdRestaura__571DF1D5">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MenuKateg__IdKat__73BA3083">
+          <End Role="KategorieMenu" Type="Self.KategorieMenu" Multiplicity="1" />
+          <End Role="MenuKategorie" Type="Self.MenuKategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KategorieMenu">
+              <PropertyRef Name="IdKategoriaMenu" />
+            </Principal>
+            <Dependent Role="MenuKategorie">
+              <PropertyRef Name="IdKategoriaMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MenuKateg__IdMen__72C60C4A">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+          <End Role="MenuKategorie" Type="Self.MenuKategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="IdMenu" />
+            </Principal>
+            <Dependent Role="MenuKategorie">
+              <PropertyRef Name="IdMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Opinie__IdKlient__6E01572D">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Opinie" Type="Self.Opinie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Opinie">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Opinie__IdRestau__6D0D32F4">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Opinie" Type="Self.Opinie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Opinie">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZa__IdMen__60A75C0F">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="PozycjeZamowienia" Type="Self.PozycjeZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="IdMenu" />
+            </Principal>
+            <Dependent Role="PozycjeZamowienia">
+              <PropertyRef Name="IdMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZa__IdZam__5FB337D6">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="PozycjeZamowienia" Type="Self.PozycjeZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="PozycjeZamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pracownic__IdPra__7B5B524B">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="1" />
+          <End Role="PracownicyRole" Type="Self.PracownicyRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownicy">
+              <PropertyRef Name="IdPracownika" />
+            </Principal>
+            <Dependent Role="PracownicyRole">
+              <PropertyRef Name="IdPracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pracownic__IdRes__656C112C">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pracownic__IdRol__7C4F7684">
+          <End Role="RolePracownikow" Type="Self.RolePracownikow" Multiplicity="1" />
+          <End Role="PracownicyRole" Type="Self.PracownicyRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolePracownikow">
+              <PropertyRef Name="IdRoli" />
+            </Principal>
+            <Dependent Role="PracownicyRole">
+              <PropertyRef Name="IdRoli" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Promocje__IdRest__76969D2E">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Promocje" Type="Self.Promocje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Promocje">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezerwacj__IdRes__59FA5E80">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="Self.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zamowieni__IdRes__5CD6CB2B">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Zamowienia">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestauracjeModelStoreContainer">
+          <EntitySet Name="Dostawy" EntityType="Self.Dostawy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistoriaZamowien" EntityType="Self.HistoriaZamowien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KategorieMenu" EntityType="Self.KategorieMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MenuKategorie" EntityType="Self.MenuKategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Opinie" EntityType="Self.Opinie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PozycjeZamowienia" EntityType="Self.PozycjeZamowienia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PracownicyRole" EntityType="Self.PracownicyRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Promocje" EntityType="Self.Promocje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Restauracje" EntityType="Self.Restauracje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezerwacje" EntityType="Self.Rezerwacje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePracownikow" EntityType="Self.RolePracownikow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Dostawy__IdResta__68487DD7" Association="Self.FK__Dostawy__IdResta__68487DD7">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Dostawy" EntitySet="Dostawy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy__IdZamow__693CA210" Association="Self.FK__Dostawy__IdZamow__693CA210">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Dostawy" EntitySet="Dostawy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaZ__IdZam__7F2BE32F" Association="Self.FK__HistoriaZ__IdZam__7F2BE32F">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="HistoriaZamowien" EntitySet="HistoriaZamowien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__IdRestaura__571DF1D5" Association="Self.FK__Menu__IdRestaura__571DF1D5">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MenuKateg__IdKat__73BA3083" Association="Self.FK__MenuKateg__IdKat__73BA3083">
+            <End Role="KategorieMenu" EntitySet="KategorieMenu" />
+            <End Role="MenuKategorie" EntitySet="MenuKategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MenuKateg__IdMen__72C60C4A" Association="Self.FK__MenuKateg__IdMen__72C60C4A">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="MenuKategorie" EntitySet="MenuKategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Opinie__IdKlient__6E01572D" Association="Self.FK__Opinie__IdKlient__6E01572D">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Opinie" EntitySet="Opinie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Opinie__IdRestau__6D0D32F4" Association="Self.FK__Opinie__IdRestau__6D0D32F4">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Opinie" EntitySet="Opinie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZa__IdMen__60A75C0F" Association="Self.FK__PozycjeZa__IdMen__60A75C0F">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="PozycjeZamowienia" EntitySet="PozycjeZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZa__IdZam__5FB337D6" Association="Self.FK__PozycjeZa__IdZam__5FB337D6">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="PozycjeZamowienia" EntitySet="PozycjeZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__IdPra__7B5B524B" Association="Self.FK__Pracownic__IdPra__7B5B524B">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="PracownicyRole" EntitySet="PracownicyRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__IdRes__656C112C" Association="Self.FK__Pracownic__IdRes__656C112C">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__IdRol__7C4F7684" Association="Self.FK__Pracownic__IdRol__7C4F7684">
+            <End Role="RolePracownikow" EntitySet="RolePracownikow" />
+            <End Role="PracownicyRole" EntitySet="PracownicyRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Promocje__IdRest__76969D2E" Association="Self.FK__Promocje__IdRest__76969D2E">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Promocje" EntitySet="Promocje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezerwacj__IdRes__59FA5E80" Association="Self.FK__Rezerwacj__IdRes__59FA5E80">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__IdRes__5CD6CB2B" Association="Self.FK__Zamowieni__IdRes__5CD6CB2B">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RestauracjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dostawy">
+          <Key>
+            <PropertyRef Name="IdDostawy" />
+          </Key>
+          <Property Name="IdDostawy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="IdZamowienia" Type="Int32" />
+          <Property Name="AdresDostawy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DataDostawy" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Dostawy__IdResta__68487DD7" FromRole="Dostawy" ToRole="Restauracje" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostawy__IdZamow__693CA210" FromRole="Dostawy" ToRole="Zamowienia" />
+        </EntityType>
+        <EntityType Name="HistoriaZamowien">
+          <Key>
+            <PropertyRef Name="IdHistorii" />
+          </Key>
+          <Property Name="IdHistorii" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdZamowienia" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__HistoriaZ__IdZam__7F2BE32F" FromRole="HistoriaZamowien" ToRole="Zamowienia" />
+        </EntityType>
+        <EntityType Name="KategorieMenu">
+          <Key>
+            <PropertyRef Name="IdKategoriaMenu" />
+          </Key>
+          <Property Name="IdKategoriaMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.MenuKategorie" FromRole="KategorieMenu" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Klienci">
+          <Key>
+            <PropertyRef Name="IdKlienta" />
+          </Key>
+          <Property Name="IdKlienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Imie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdKlient__6E01572D" FromRole="Klienci" ToRole="Opinie" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="IdMenu" />
+          </Key>
+          <Property Name="IdMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cena" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Menu__IdRestaura__571DF1D5" FromRole="Menu" ToRole="Restauracje" />
+          <NavigationProperty Name="PozycjeZamowienia" Relationship="Self.FK__PozycjeZa__IdMen__60A75C0F" FromRole="Menu" ToRole="PozycjeZamowienia" />
+          <NavigationProperty Name="KategorieMenu" Relationship="Self.MenuKategorie" FromRole="Menu" ToRole="KategorieMenu" />
+        </EntityType>
+        <EntityType Name="Opinie">
+          <Key>
+            <PropertyRef Name="IdOpinii" />
+          </Key>
+          <Property Name="IdOpinii" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="IdKlienta" Type="Int32" />
+          <Property Name="Ocena" Type="Int32" />
+          <Property Name="Komentarz" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK__Opinie__IdKlient__6E01572D" FromRole="Opinie" ToRole="Klienci" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Opinie__IdRestau__6D0D32F4" FromRole="Opinie" ToRole="Restauracje" />
+        </EntityType>
+        <EntityType Name="PozycjeZamowienia">
+          <Key>
+            <PropertyRef Name="IdPozycjaZamowienia" />
+          </Key>
+          <Property Name="IdPozycjaZamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdZamowienia" Type="Int32" />
+          <Property Name="IdMenu" Type="Int32" />
+          <Property Name="Ilosc" Type="Int32" Nullable="false" />
+          <Property Name="Cena" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__PozycjeZa__IdMen__60A75C0F" FromRole="PozycjeZamowienia" ToRole="Menu" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__PozycjeZa__IdZam__5FB337D6" FromRole="PozycjeZamowienia" ToRole="Zamowienia" />
+        </EntityType>
+        <EntityType Name="Pracownicy">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+          </Key>
+          <Property Name="IdPracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="Imie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stanowisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Pracownic__IdRes__656C112C" FromRole="Pracownicy" ToRole="Restauracje" />
+          <NavigationProperty Name="RolePracownikow" Relationship="Self.PracownicyRole" FromRole="Pracownicy" ToRole="RolePracownikow" />
+        </EntityType>
+        <EntityType Name="Promocje">
+          <Key>
+            <PropertyRef Name="IdPromocji" />
+          </Key>
+          <Property Name="IdPromocji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Opis" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DataRozpoczecia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataZakonczenia" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Promocje__IdRest__76969D2E" FromRole="Promocje" ToRole="Restauracje" />
+        </EntityType>
+        <EntityType Name="Restauracje">
+          <Key>
+            <PropertyRef Name="IdRestauracji" />
+          </Key>
+          <Property Name="IdRestauracji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Miasto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="GodzinyOtwarcia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dostawy" Relationship="Self.FK__Dostawy__IdResta__68487DD7" FromRole="Restauracje" ToRole="Dostawy" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__IdRestaura__571DF1D5" FromRole="Restauracje" ToRole="Menu" />
+          <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdRestau__6D0D32F4" FromRole="Restauracje" ToRole="Opinie" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Pracownic__IdRes__656C112C" FromRole="Restauracje" ToRole="Pracownicy" />
+          <NavigationProperty Name="Promocje" Relationship="Self.FK__Promocje__IdRest__76969D2E" FromRole="Restauracje" ToRole="Promocje" />
+          <NavigationProperty Name="Rezerwacje" Relationship="Self.FK__Rezerwacj__IdRes__59FA5E80" FromRole="Restauracje" ToRole="Rezerwacje" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Zamowieni__IdRes__5CD6CB2B" FromRole="Restauracje" ToRole="Zamowienia" />
+        </EntityType>
+        <EntityType Name="Rezerwacje">
+          <Key>
+            <PropertyRef Name="IdRezerwacji" />
+          </Key>
+          <Property Name="IdRezerwacji" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="IdKlienta" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Godzina" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="LiczbaOsob" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Rezerwacj__IdRes__59FA5E80" FromRole="Rezerwacje" ToRole="Restauracje" />
+        </EntityType>
+        <EntityType Name="RolePracownikow">
+          <Key>
+            <PropertyRef Name="IdRoli" />
+          </Key>
+          <Property Name="IdRoli" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownicy" Relationship="Self.PracownicyRole" FromRole="RolePracownikow" ToRole="Pracownicy" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Zamowienia">
+          <Key>
+            <PropertyRef Name="IdZamowienia" />
+          </Key>
+          <Property Name="IdZamowienia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRestauracji" Type="Int32" />
+          <Property Name="IdKlienta" Type="Int32" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Dostawy" Relationship="Self.FK__Dostawy__IdZamow__693CA210" FromRole="Zamowienia" ToRole="Dostawy" />
+          <NavigationProperty Name="HistoriaZamowien" Relationship="Self.FK__HistoriaZ__IdZam__7F2BE32F" FromRole="Zamowienia" ToRole="HistoriaZamowien" />
+          <NavigationProperty Name="PozycjeZamowienia" Relationship="Self.FK__PozycjeZa__IdZam__5FB337D6" FromRole="Zamowienia" ToRole="PozycjeZamowienia" />
+          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Zamowieni__IdRes__5CD6CB2B" FromRole="Zamowienia" ToRole="Restauracje" />
+        </EntityType>
+        <Association Name="FK__Dostawy__IdResta__68487DD7">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Dostawy">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Dostawy__IdZamow__693CA210">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="Dostawy">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HistoriaZ__IdZam__7F2BE32F">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="HistoriaZamowien" Type="Self.HistoriaZamowien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="HistoriaZamowien">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Opinie__IdKlient__6E01572D">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Opinie" Type="Self.Opinie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Opinie">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__IdRestaura__571DF1D5">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZa__IdMen__60A75C0F">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="PozycjeZamowienia" Type="Self.PozycjeZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="IdMenu" />
+            </Principal>
+            <Dependent Role="PozycjeZamowienia">
+              <PropertyRef Name="IdMenu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Opinie__IdRestau__6D0D32F4">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Opinie" Type="Self.Opinie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Opinie">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PozycjeZa__IdZam__5FB337D6">
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
+          <End Role="PozycjeZamowienia" Type="Self.PozycjeZamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Principal>
+            <Dependent Role="PozycjeZamowienia">
+              <PropertyRef Name="IdZamowienia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pracownic__IdRes__656C112C">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Pracownicy">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Promocje__IdRest__76969D2E">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Promocje" Type="Self.Promocje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Promocje">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezerwacj__IdRes__59FA5E80">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="Self.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Zamowieni__IdRes__5CD6CB2B">
+          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Restauracje">
+              <PropertyRef Name="IdRestauracji" />
+            </Principal>
+            <Dependent Role="Zamowienia">
+              <PropertyRef Name="IdRestauracji" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MenuKategorie">
+          <End Role="KategorieMenu" Type="Self.KategorieMenu" Multiplicity="*" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+        </Association>
+        <Association Name="PracownicyRole">
+          <End Role="Pracownicy" Type="Self.Pracownicy" Multiplicity="*" />
+          <End Role="RolePracownikow" Type="Self.RolePracownikow" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="RestauracjeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dostawy" EntityType="Self.Dostawy" />
+          <EntitySet Name="HistoriaZamowien" EntityType="Self.HistoriaZamowien" />
+          <EntitySet Name="KategorieMenu" EntityType="Self.KategorieMenu" />
+          <EntitySet Name="Klienci" EntityType="Self.Klienci" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Opinie" EntityType="Self.Opinie" />
+          <EntitySet Name="PozycjeZamowienia" EntityType="Self.PozycjeZamowienia" />
+          <EntitySet Name="Pracownicy" EntityType="Self.Pracownicy" />
+          <EntitySet Name="Promocje" EntityType="Self.Promocje" />
+          <EntitySet Name="Restauracje" EntityType="Self.Restauracje" />
+          <EntitySet Name="Rezerwacje" EntityType="Self.Rezerwacje" />
+          <EntitySet Name="RolePracownikow" EntityType="Self.RolePracownikow" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
+          <AssociationSet Name="FK__Dostawy__IdResta__68487DD7" Association="Self.FK__Dostawy__IdResta__68487DD7">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Dostawy" EntitySet="Dostawy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Dostawy__IdZamow__693CA210" Association="Self.FK__Dostawy__IdZamow__693CA210">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="Dostawy" EntitySet="Dostawy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HistoriaZ__IdZam__7F2BE32F" Association="Self.FK__HistoriaZ__IdZam__7F2BE32F">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="HistoriaZamowien" EntitySet="HistoriaZamowien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Opinie__IdKlient__6E01572D" Association="Self.FK__Opinie__IdKlient__6E01572D">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Opinie" EntitySet="Opinie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__IdRestaura__571DF1D5" Association="Self.FK__Menu__IdRestaura__571DF1D5">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZa__IdMen__60A75C0F" Association="Self.FK__PozycjeZa__IdMen__60A75C0F">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="PozycjeZamowienia" EntitySet="PozycjeZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Opinie__IdRestau__6D0D32F4" Association="Self.FK__Opinie__IdRestau__6D0D32F4">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Opinie" EntitySet="Opinie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PozycjeZa__IdZam__5FB337D6" Association="Self.FK__PozycjeZa__IdZam__5FB337D6">
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+            <End Role="PozycjeZamowienia" EntitySet="PozycjeZamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pracownic__IdRes__656C112C" Association="Self.FK__Pracownic__IdRes__656C112C">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Promocje__IdRest__76969D2E" Association="Self.FK__Promocje__IdRest__76969D2E">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Promocje" EntitySet="Promocje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezerwacj__IdRes__59FA5E80" Association="Self.FK__Rezerwacj__IdRes__59FA5E80">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Zamowieni__IdRes__5CD6CB2B" Association="Self.FK__Zamowieni__IdRes__5CD6CB2B">
+            <End Role="Restauracje" EntitySet="Restauracje" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+          </AssociationSet>
+          <AssociationSet Name="MenuKategorie" Association="Self.MenuKategorie">
+            <End Role="KategorieMenu" EntitySet="KategorieMenu" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="PracownicyRole" Association="Self.PracownicyRole">
+            <End Role="Pracownicy" EntitySet="Pracownicy" />
+            <End Role="RolePracownikow" EntitySet="RolePracownikow" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestauracjeModelStoreContainer" CdmEntityContainer="RestauracjeEntities">
+          <EntitySetMapping Name="Dostawy">
+            <EntityTypeMapping TypeName="RestauracjeModel.Dostawy">
+              <MappingFragment StoreEntitySet="Dostawy">
+                <ScalarProperty Name="IdDostawy" ColumnName="IdDostawy" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
+                <ScalarProperty Name="AdresDostawy" ColumnName="AdresDostawy" />
+                <ScalarProperty Name="DataDostawy" ColumnName="DataDostawy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistoriaZamowien">
+            <EntityTypeMapping TypeName="RestauracjeModel.HistoriaZamowien">
+              <MappingFragment StoreEntitySet="HistoriaZamowien">
+                <ScalarProperty Name="IdHistorii" ColumnName="IdHistorii" />
+                <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KategorieMenu">
+            <EntityTypeMapping TypeName="RestauracjeModel.KategorieMenu">
+              <MappingFragment StoreEntitySet="KategorieMenu">
+                <ScalarProperty Name="IdKategoriaMenu" ColumnName="IdKategoriaMenu" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klienci">
+            <EntityTypeMapping TypeName="RestauracjeModel.Klienci">
+              <MappingFragment StoreEntitySet="Klienci">
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="RestauracjeModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opinie">
+            <EntityTypeMapping TypeName="RestauracjeModel.Opinie">
+              <MappingFragment StoreEntitySet="Opinie">
+                <ScalarProperty Name="IdOpinii" ColumnName="IdOpinii" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Ocena" ColumnName="Ocena" />
+                <ScalarProperty Name="Komentarz" ColumnName="Komentarz" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PozycjeZamowienia">
+            <EntityTypeMapping TypeName="RestauracjeModel.PozycjeZamowienia">
+              <MappingFragment StoreEntitySet="PozycjeZamowienia">
+                <ScalarProperty Name="IdPozycjaZamowienia" ColumnName="IdPozycjaZamowienia" />
+                <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
+                <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+                <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+                <ScalarProperty Name="Cena" ColumnName="Cena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownicy">
+            <EntityTypeMapping TypeName="RestauracjeModel.Pracownicy">
+              <MappingFragment StoreEntitySet="Pracownicy">
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Stanowisko" ColumnName="Stanowisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Promocje">
+            <EntityTypeMapping TypeName="RestauracjeModel.Promocje">
+              <MappingFragment StoreEntitySet="Promocje">
+                <ScalarProperty Name="IdPromocji" ColumnName="IdPromocji" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="DataRozpoczecia" ColumnName="DataRozpoczecia" />
+                <ScalarProperty Name="DataZakonczenia" ColumnName="DataZakonczenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Restauracje">
+            <EntityTypeMapping TypeName="RestauracjeModel.Restauracje">
+              <MappingFragment StoreEntitySet="Restauracje">
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="GodzinyOtwarcia" ColumnName="GodzinyOtwarcia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezerwacje">
+            <EntityTypeMapping TypeName="RestauracjeModel.Rezerwacje">
+              <MappingFragment StoreEntitySet="Rezerwacje">
+                <ScalarProperty Name="IdRezerwacji" ColumnName="IdRezerwacji" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Godzina" ColumnName="Godzina" />
+                <ScalarProperty Name="LiczbaOsob" ColumnName="LiczbaOsob" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePracownikow">
+            <EntityTypeMapping TypeName="RestauracjeModel.RolePracownikow">
+              <MappingFragment StoreEntitySet="RolePracownikow">
+                <ScalarProperty Name="IdRoli" ColumnName="IdRoli" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RestauracjeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zamowienia">
+            <EntityTypeMapping TypeName="RestauracjeModel.Zamowienia">
+              <MappingFragment StoreEntitySet="Zamowienia">
+                <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
+                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
+                <ScalarProperty Name="IdKlienta" ColumnName="IdKlienta" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Suma" ColumnName="Suma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MenuKategorie" TypeName="RestauracjeModel.MenuKategorie" StoreEntitySet="MenuKategorie">
+            <EndProperty Name="KategorieMenu">
+              <ScalarProperty Name="IdKategoriaMenu" ColumnName="IdKategoriaMenu" />
+            </EndProperty>
+            <EndProperty Name="Menu">
+              <ScalarProperty Name="IdMenu" ColumnName="IdMenu" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PracownicyRole" TypeName="RestauracjeModel.PracownicyRole" StoreEntitySet="PracownicyRole">
+            <EndProperty Name="Pracownicy">
+              <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+            </EndProperty>
+            <EndProperty Name="RolePracownikow">
+              <ScalarProperty Name="IdRoli" ColumnName="IdRoli" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
