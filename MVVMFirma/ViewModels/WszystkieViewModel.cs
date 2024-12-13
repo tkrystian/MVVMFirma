@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using System.Linq;
 using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Models.EntitiesForView;
 
 namespace MVVMFirma.ViewModels
 {
@@ -65,9 +66,10 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Helpers
-        private void load()
+        public virtual void load()
         {
             List = new ObservableCollection<T>(restauracjeEntities.Set<T>().ToList());
+           
         }
 
         private void add()

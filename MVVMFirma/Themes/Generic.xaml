@@ -37,7 +37,7 @@
                                     <TextBlock Text=" Kasuj" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </ToggleButton>
-                            <ToggleButton Margin="0,2,0,2">
+                            <ToggleButton Margin="0,2,0,2" Command="{Binding LoadCommand}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72C;" FontSize="16" VerticalAlignment="Center"/>
                                     <TextBlock Text=" Odśwież" VerticalAlignment="Center"/>

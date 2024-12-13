@@ -17,10 +17,19 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Ocena"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=Ocena, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8 " Text="{Binding Path=Ocena, UpdateSourceTrigger=PropertyChanged}">
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox>
+        <!--<TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=Ocena, UpdateSourceTrigger=PropertyChanged}"/>-->
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Komentarz"/>
         <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Komentarz, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Data"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Data, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8"  SelectedDateFormat="Long" SelectedDate="{Binding Path=Data, UpdateSourceTrigger=PropertyChanged}"
+                    DisplayDateStart="1/01/24" DisplayDateEnd="12/31/24" FirstDayOfWeek="Monday" />
+        <!--<TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Data, UpdateSourceTrigger=PropertyChanged}"/>-->
     </Grid>
 </local:JedenViewBase>

@@ -21,6 +21,7 @@ namespace MVVMFirma.Models.Entities
         public System.TimeSpan Godzina { get; set; }
         public int LiczbaOsob { get; set; }
     
+        public virtual Klienci Klienci { get; set; }
         public virtual Restauracje Restauracje { get; set; }
     }
 }

@@ -15,12 +15,10 @@ namespace MVVMFirma.Models.Entities
     public partial class Dostawy
     {
         public int IdDostawy { get; set; }
-        public Nullable<int> IdRestauracji { get; set; }
         public Nullable<int> IdZamowienia { get; set; }
         public string AdresDostawy { get; set; }
         public System.DateTime DataDostawy { get; set; }
     
-        public virtual Restauracje Restauracje { get; set; }
         public virtual Zamowienia Zamowienia { get; set; }
     }
 }

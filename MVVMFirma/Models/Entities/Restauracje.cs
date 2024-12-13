@@ -17,7 +17,6 @@ namespace MVVMFirma.Models.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Restauracje()
         {
-            this.Dostawy = new HashSet<Dostawy>();
             this.Menu = new HashSet<Menu>();
             this.Opinie = new HashSet<Opinie>();
             this.Pracownicy = new HashSet<Pracownicy>();
@@ -33,8 +32,6 @@ namespace MVVMFirma.Models.Entities
         public string Telefon { get; set; }
         public string GodzinyOtwarcia { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dostawy> Dostawy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

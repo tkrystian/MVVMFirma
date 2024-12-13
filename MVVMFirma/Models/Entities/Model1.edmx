@@ -4,13 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RestauracjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RestauracjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Dostawy">
           <Key>
             <PropertyRef Name="IdDostawy" />
           </Key>
           <Property Name="IdDostawy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdRestauracji" Type="int" />
           <Property Name="IdZamowienia" Type="int" />
           <Property Name="AdresDostawy" Type="nvarchar" MaxLength="255" />
           <Property Name="DataDostawy" Type="date" Nullable="false" />
@@ -158,18 +157,6 @@
           <Property Name="Data" Type="date" Nullable="false" />
           <Property Name="Suma" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Dostawy__IdResta__68487DD7">
-          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
-          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Restauracje">
-              <PropertyRef Name="IdRestauracji" />
-            </Principal>
-            <Dependent Role="Dostawy">
-              <PropertyRef Name="IdRestauracji" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Dostawy__IdZamow__693CA210">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
@@ -350,6 +337,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Rezerwacje_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="Self.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zamowienia_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Zamowienia">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RestauracjeModelStoreContainer">
           <EntitySet Name="Dostawy" EntityType="Self.Dostawy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HistoriaZamowien" EntityType="Self.HistoriaZamowien" Schema="dbo" store:Type="Tables" />
@@ -367,10 +378,6 @@
           <EntitySet Name="RolePracownikow" EntityType="Self.RolePracownikow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Dostawy__IdResta__68487DD7" Association="Self.FK__Dostawy__IdResta__68487DD7">
-            <End Role="Restauracje" EntitySet="Restauracje" />
-            <End Role="Dostawy" EntitySet="Dostawy" />
-          </AssociationSet>
           <AssociationSet Name="FK__Dostawy__IdZamow__693CA210" Association="Self.FK__Dostawy__IdZamow__693CA210">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostawy" EntitySet="Dostawy" />
@@ -431,9 +438,16 @@
             <End Role="Restauracje" EntitySet="Restauracje" />
             <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rezerwacje_Klienci" Association="Self.FK_Rezerwacje_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zamowienia_Klienci" Association="Self.FK_Zamowienia_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RestauracjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -442,11 +456,9 @@
             <PropertyRef Name="IdDostawy" />
           </Key>
           <Property Name="IdDostawy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdRestauracji" Type="Int32" />
           <Property Name="IdZamowienia" Type="Int32" />
           <Property Name="AdresDostawy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="DataDostawy" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Restauracje" Relationship="Self.FK__Dostawy__IdResta__68487DD7" FromRole="Dostawy" ToRole="Restauracje" />
           <NavigationProperty Name="Zamowienia" Relationship="Self.FK__Dostawy__IdZamow__693CA210" FromRole="Dostawy" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="HistoriaZamowien">
@@ -477,6 +489,8 @@
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdKlient__6E01572D" FromRole="Klienci" ToRole="Opinie" />
+          <NavigationProperty Name="Rezerwacje" Relationship="Self.FK_Rezerwacje_Klienci" FromRole="Klienci" ToRole="Rezerwacje" />
+          <NavigationProperty Name="Zamowienia" Relationship="Self.FK_Zamowienia_Klienci" FromRole="Klienci" ToRole="Zamowienia" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -550,7 +564,6 @@
           <Property Name="Miasto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="GodzinyOtwarcia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Dostawy" Relationship="Self.FK__Dostawy__IdResta__68487DD7" FromRole="Restauracje" ToRole="Dostawy" />
           <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__IdRestaura__571DF1D5" FromRole="Restauracje" ToRole="Menu" />
           <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdRestau__6D0D32F4" FromRole="Restauracje" ToRole="Opinie" />
           <NavigationProperty Name="Pracownicy" Relationship="Self.FK__Pracownic__IdRes__656C112C" FromRole="Restauracje" ToRole="Pracownicy" />
@@ -568,6 +581,7 @@
           <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Godzina" Type="Time" Nullable="false" Precision="7" />
           <Property Name="LiczbaOsob" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK_Rezerwacje_Klienci" FromRole="Rezerwacje" ToRole="Klienci" />
           <NavigationProperty Name="Restauracje" Relationship="Self.FK__Rezerwacj__IdRes__59FA5E80" FromRole="Rezerwacje" ToRole="Restauracje" />
         </EntityType>
         <EntityType Name="RolePracownikow">
@@ -599,21 +613,10 @@
           <Property Name="Suma" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="Dostawy" Relationship="Self.FK__Dostawy__IdZamow__693CA210" FromRole="Zamowienia" ToRole="Dostawy" />
           <NavigationProperty Name="HistoriaZamowien" Relationship="Self.FK__HistoriaZ__IdZam__7F2BE32F" FromRole="Zamowienia" ToRole="HistoriaZamowien" />
+          <NavigationProperty Name="Klienci" Relationship="Self.FK_Zamowienia_Klienci" FromRole="Zamowienia" ToRole="Klienci" />
           <NavigationProperty Name="PozycjeZamowienia" Relationship="Self.FK__PozycjeZa__IdZam__5FB337D6" FromRole="Zamowienia" ToRole="PozycjeZamowienia" />
           <NavigationProperty Name="Restauracje" Relationship="Self.FK__Zamowieni__IdRes__5CD6CB2B" FromRole="Zamowienia" ToRole="Restauracje" />
         </EntityType>
-        <Association Name="FK__Dostawy__IdResta__68487DD7">
-          <End Role="Restauracje" Type="Self.Restauracje" Multiplicity="0..1" />
-          <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Restauracje">
-              <PropertyRef Name="IdRestauracji" />
-            </Principal>
-            <Dependent Role="Dostawy">
-              <PropertyRef Name="IdRestauracji" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Dostawy__IdZamow__693CA210">
           <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="0..1" />
           <End Role="Dostawy" Type="Self.Dostawy" Multiplicity="*" />
@@ -646,6 +649,30 @@
               <PropertyRef Name="IdKlienta" />
             </Principal>
             <Dependent Role="Opinie">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezerwacje_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Rezerwacje" Type="Self.Rezerwacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Rezerwacje">
+              <PropertyRef Name="IdKlienta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zamowienia_Klienci">
+          <End Role="Klienci" Type="Self.Klienci" Multiplicity="0..1" />
+          <End Role="Zamowienia" Type="Self.Zamowienia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klienci">
+              <PropertyRef Name="IdKlienta" />
+            </Principal>
+            <Dependent Role="Zamowienia">
               <PropertyRef Name="IdKlienta" />
             </Dependent>
           </ReferentialConstraint>
@@ -769,10 +796,6 @@
           <EntitySet Name="RolePracownikow" EntityType="Self.RolePracownikow" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Zamowienia" EntityType="Self.Zamowienia" />
-          <AssociationSet Name="FK__Dostawy__IdResta__68487DD7" Association="Self.FK__Dostawy__IdResta__68487DD7">
-            <End Role="Restauracje" EntitySet="Restauracje" />
-            <End Role="Dostawy" EntitySet="Dostawy" />
-          </AssociationSet>
           <AssociationSet Name="FK__Dostawy__IdZamow__693CA210" Association="Self.FK__Dostawy__IdZamow__693CA210">
             <End Role="Zamowienia" EntitySet="Zamowienia" />
             <End Role="Dostawy" EntitySet="Dostawy" />
@@ -784,6 +807,14 @@
           <AssociationSet Name="FK__Opinie__IdKlient__6E01572D" Association="Self.FK__Opinie__IdKlient__6E01572D">
             <End Role="Klienci" EntitySet="Klienci" />
             <End Role="Opinie" EntitySet="Opinie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezerwacje_Klienci" Association="Self.FK_Rezerwacje_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Rezerwacje" EntitySet="Rezerwacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zamowienia_Klienci" Association="Self.FK_Zamowienia_Klienci">
+            <End Role="Klienci" EntitySet="Klienci" />
+            <End Role="Zamowienia" EntitySet="Zamowienia" />
           </AssociationSet>
           <AssociationSet Name="FK__Menu__IdRestaura__571DF1D5" Association="Self.FK__Menu__IdRestaura__571DF1D5">
             <End Role="Restauracje" EntitySet="Restauracje" />
@@ -836,7 +867,6 @@
             <EntityTypeMapping TypeName="RestauracjeModel.Dostawy">
               <MappingFragment StoreEntitySet="Dostawy">
                 <ScalarProperty Name="IdDostawy" ColumnName="IdDostawy" />
-                <ScalarProperty Name="IdRestauracji" ColumnName="IdRestauracji" />
                 <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
                 <ScalarProperty Name="AdresDostawy" ColumnName="AdresDostawy" />
                 <ScalarProperty Name="DataDostawy" ColumnName="DataDostawy" />

@@ -10,7 +10,9 @@ namespace MVVMFirma.ViewModels
 {
     public class NowyHistoriaZamowienViewModel : JedenViewModel<HistoriaZamowien>
     {
-        public NowyHistoriaZamowienViewModel() : base("Nowa Historia Zamowien") { }
+        public NowyHistoriaZamowienViewModel() : base("Nowa Historia Zamowien") {
+            Data = DateTime.Now;
+        }
 
 
         public string Status

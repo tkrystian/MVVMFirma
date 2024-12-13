@@ -19,6 +19,5 @@
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=Ilosc, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Cena"/>
         <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Cena, UpdateSourceTrigger=PropertyChanged}"/>
-        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Telefon"/>
     </Grid>
 </local:JedenViewBase>

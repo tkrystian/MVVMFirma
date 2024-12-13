@@ -18,6 +18,8 @@ namespace MVVMFirma.Models.Entities
         public Klienci()
         {
             this.Opinie = new HashSet<Opinie>();
+            this.Rezerwacje = new HashSet<Rezerwacje>();
+            this.Zamowienia = new HashSet<Zamowienia>();
         }
     
         public int IdKlienta { get; set; }
@@ -28,5 +30,9 @@ namespace MVVMFirma.Models.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Opinie> Opinie { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezerwacje> Rezerwacje { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zamowienia> Zamowienia { get; set; }
     }
 }

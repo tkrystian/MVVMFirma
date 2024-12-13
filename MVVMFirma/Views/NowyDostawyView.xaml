@@ -18,6 +18,8 @@
         <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="Adres Dostawy"/>
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=AdresDostawy, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Data Dostawy"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=DataDostawy, UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=DataDostawy, UpdateSourceTrigger=PropertyChanged}"/>-->
+        <DatePicker Grid.Column="1" Grid.Row="1" Margin="0,8,0,8"  SelectedDateFormat="Long" SelectedDate="{Binding Path=DataDostawy, UpdateSourceTrigger=PropertyChanged}"
+            DisplayDateStart="1/01/24" DisplayDateEnd="12/31/24" FirstDayOfWeek="Monday" />
     </Grid>
 </local:JedenViewBase>

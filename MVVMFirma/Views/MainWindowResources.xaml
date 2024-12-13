@@ -150,10 +150,10 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2,6">
-            <Hyperlink Command="{Binding Path=Command}">
-              <TextBlock Text="{Binding Path=DisplayName}" />
-            </Hyperlink>
-          </TextBlock>
+                        <Button Width="120" Command="{Binding Path=Command}" >
+                            <TextBlock Text="{Binding Path=DisplayName}" TextAlignment="Left" VerticalAlignment="Center"/>
+                        </Button>
+                    </TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -197,4 +197,7 @@
       Margin="4"
       />
     </DataTemplate>
+    
+    
+    
 </ResourceDictionary>

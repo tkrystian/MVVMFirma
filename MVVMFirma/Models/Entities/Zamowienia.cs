@@ -32,6 +32,7 @@ namespace MVVMFirma.Models.Entities
         public virtual ICollection<Dostawy> Dostawy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistoriaZamowien> HistoriaZamowien { get; set; }
+        public virtual Klienci Klienci { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PozycjeZamowienia> PozycjeZamowienia { get; set; }
         public virtual Restauracje Restauracje { get; set; }

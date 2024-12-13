@@ -103,62 +103,70 @@
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Helper\WindowHelper.cs" />
+    <Compile Include="Models\EntitiesForView\DostawyForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\MenuForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\OpinieForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\PozycjeZamowieniaForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\PracownicyForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\PromocjeForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\RezerwacjeForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\ZamowieniaForAllView.cs" />
     <Compile Include="Models\Entities\Dostawy.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\HistoriaZamowien.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\KategorieMenu.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Klienci.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Menu.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelRestauracje.Context.cs">
+    <Compile Include="Models\Entities\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRestauracje.Context.tt</DependentUpon>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelRestauracje.cs">
+    <Compile Include="Models\Entities\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\ModelRestauracje.Designer.cs">
+    <Compile Include="Models\Entities\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelRestauracje.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Opinie.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\PozycjeZamowienia.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Pracownicy.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Promocje.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Restauracje.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Rezerwacje.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\RolePracownikow.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\sysdiagrams.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entities\Zamowienia.cs">
-      <DependentUpon>ModelRestauracje.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
@@ -263,9 +271,6 @@
     <Compile Include="Views\WszystkiePozycjeZamowieniaView.xaml.cs">
       <DependentUpon>WszystkiePozycjeZamowieniaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WszystkiePracownicyRoleView.xaml.cs">
-      <DependentUpon>WszystkiePracownicyRoleView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\WszystkiePracownicyView.xaml.cs">
       <DependentUpon>WszystkiePracownicyView.xaml</DependentUpon>
     </Compile>
@@ -280,9 +285,6 @@
     </Compile>
     <Compile Include="Views\WszystkieZamowieniaView.xaml.cs">
       <DependentUpon>WszystkieZamowieniaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WszystkieFakturyView.xaml.cs">
-      <DependentUpon>WszystkieFakturyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\WszystkieRestauracjeView.xaml.cs">
       <DependentUpon>WszystkieRestauracjeView.xaml</DependentUpon>
@@ -309,12 +311,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EntityDeploy Include="Models\Entities\ModelRestauracje.edmx">
+    <EntityDeploy Include="Models\Entities\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelRestauracje.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Entities\ModelRestauracje.edmx.diagram">
-      <DependentUpon>ModelRestauracje.edmx</DependentUpon>
+    <None Include="Models\Entities\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -420,10 +422,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WszystkiePracownicyRoleView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\WszystkiePracownicyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -441,10 +439,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WszystkieZamowieniaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WszystkieFakturyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -468,19 +462,19 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\Entities\ModelRestauracje.Context.tt">
+    <Content Include="Models\Entities\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelRestauracje.edmx</DependentUpon>
-      <LastGenOutput>ModelRestauracje.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Entities\ModelRestauracje.tt">
+    <Content Include="Models\Entities\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelRestauracje.edmx</DependentUpon>
-      <LastGenOutput>ModelRestauracje.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

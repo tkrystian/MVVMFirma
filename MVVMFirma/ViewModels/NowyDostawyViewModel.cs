@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Markup;
 
 namespace MVVMFirma.ViewModels
 {
     public class NowyDostawyViewModel : JedenViewModel<Dostawy>
     {
-        public NowyDostawyViewModel() : base("Nowa Dostawa") { }
+        public NowyDostawyViewModel() : base("Nowa Dostawa") {
+            DataDostawy = DateTime.Now;
+        }
 
         
         public string AdresDostawy

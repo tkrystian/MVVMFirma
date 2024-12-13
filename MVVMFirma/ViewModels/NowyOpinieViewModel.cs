@@ -10,7 +10,9 @@ namespace MVVMFirma.ViewModels
 {
     public class NowyOpinieViewModel : JedenViewModel<Opinie>
     {
-        public NowyOpinieViewModel() : base("Nowa Opinia") { }
+        public NowyOpinieViewModel() : base("Nowa Opinia") {
+            Data = DateTime.Now;
+        }
 
 
         public int? Ocena

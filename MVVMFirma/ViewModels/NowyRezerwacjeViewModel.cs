@@ -10,7 +10,9 @@ namespace MVVMFirma.ViewModels
 {
     public class NowyRezerwacjeViewModel : JedenViewModel<Rezerwacje>
     {
-        public NowyRezerwacjeViewModel() : base("Nowa Rezerwacja") { }
+        public NowyRezerwacjeViewModel() : base("Nowa Rezerwacja") {
+            Data = DateTime.Now;
+        }
 
 
         public DateTime Data

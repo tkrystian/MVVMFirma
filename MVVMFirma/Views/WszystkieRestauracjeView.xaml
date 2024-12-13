@@ -9,7 +9,6 @@
     <Grid>
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding IdRestauracji}"/>
                 <DataGridTextColumn Header="Nazwa" Binding="{Binding Nazwa}"/>
                 <DataGridTextColumn Header="Adres" Binding="{Binding Adres}"/>
                     <DataGridTextColumn Header="Miasto" Binding="{Binding Miasto}"/>

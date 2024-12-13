@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Windows.Data;
 using MVVMFirma.ViewModels;
 using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
@@ -33,6 +34,18 @@ namespace MVVMFirma.ViewModels
                 return _Commands;
             }
         }
+
+        private BaseCommand _ShowRestauracjeCommand;
+        public ICommand ShowRestauracjeCommand
+        {
+            get
+            {
+                if (_ShowRestauracjeCommand == null)
+                    _ShowRestauracjeCommand = new BaseCommand(() => this.ShowAll(new WszystkieRestauracjeViewModel()));
+                return _ShowRestauracjeCommand;
+            }
+        }
+
         private List<CommandViewModel> CreateCommands()
         {
             Messenger.Default.Register<string>(this, open);
@@ -161,7 +174,7 @@ namespace MVVMFirma.ViewModels
             switch (name)
             {
                 case "DostawyAdd": CreateView(new NowyDostawyViewModel()); break;
-                case "Historia ZamowienAdd": CreateView(new NowyKategorieMenuViewModel()); break;
+                case "Historia ZamowienAdd": CreateView(new NowyHistoriaZamowienViewModel()); break;
                 case "Kategorie MenuAdd": CreateView(new NowyKategorieMenuViewModel()); break;
                 case "KlienciAdd": CreateView(new NowyKlienciViewModel()); break;
                 case "MenuAdd": CreateView(new NowyMenuViewModel()); break;

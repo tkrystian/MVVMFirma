@@ -10,7 +10,9 @@ namespace MVVMFirma.ViewModels
 {
     public class NowyZamowieniaViewModel : JedenViewModel<Zamowienia>
     {
-        public NowyZamowieniaViewModel() : base("Nowe Zamowienie") { }
+        public NowyZamowieniaViewModel() : base("Nowe Zamowienie") {
+            Data = DateTime.Now;
+        }
 
 
         public DateTime Data
