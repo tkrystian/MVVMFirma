@@ -1,10 +1,9 @@
-﻿using MVVMFirma.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using System.Linq;
-using GalaSoft.MvvmLight.Messaging;
-using MVVMFirma.Models.EntitiesForView;
+using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
@@ -69,7 +68,7 @@ namespace MVVMFirma.ViewModels
         public virtual void load()
         {
             List = new ObservableCollection<T>(restauracjeEntities.Set<T>().ToList());
-           
+
         }
 
         private void add()

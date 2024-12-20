@@ -1,12 +1,6 @@
-﻿using MVVMFirma.Helper;
-using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.Validators;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
@@ -26,7 +20,7 @@ namespace MVVMFirma.ViewModels
             get { return item.Nazwisko; }
             set { item.Nazwisko = value; OnPropertyChanged(() => Nazwisko); }
         }
-        
+
         public string Stanowisko
         {
             get { return item.Stanowisko; }

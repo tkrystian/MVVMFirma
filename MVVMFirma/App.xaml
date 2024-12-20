@@ -6,49 +6,74 @@
              >
   <Application.Resources>
     <ResourceDictionary>
-            <Style  TargetType="TextBox">
-                <Style.Triggers>
-                    <Trigger  Property="Validation.HasError"  Value="true">
-                        <Setter  Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+        <Style  TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger  Property="Validation.HasError"  Value="true">
+                    <Setter  Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
-            <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MVVMFirma.ViewModel" />
-            <Style TargetType="Label">
-                <Setter Property="Foreground" Value="White"/>
-            </Style>
-            <Style TargetType="DataGrid">
-                <Setter Property="Background" Value="Transparent"/>
-            </Style>
-            <Style TargetType="ToolBar">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="ToolBar">
-                            <DockPanel>
-                                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                                    <WrapPanel IsItemsHost="True"/>
-                                </ScrollViewer>
-                            </DockPanel>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-
-            <Style TargetType="Menu">
-                <Setter Property="Background" Value="#272537"/>
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="BorderBrush" Value="Transparent"/>
-                <Setter Property="BorderThickness" Value="0"/>
-            </Style>
+        <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:MVVMFirma.ViewModel" />
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
             
-            <Style TargetType="MenuItem">
-                <Setter Property="Background" Value="#272537"/>
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="BorderBrush" Value="Transparent"/>
-                <Setter Property="BorderThickness" Value="0"/>
-            </Style>
+        <Style TargetType="ToolBar">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToolBar">
+                        <DockPanel>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <WrapPanel IsItemsHost="True"/>
+                            </ScrollViewer>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="DataGrid" >
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Background" Value="#42414D"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="Padding" Value="5,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="BorderBrush" Value="#7B797F"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="#42414D"/>
+            <Setter Property="Foreground" Value="#A5A599"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#2B2A33"/>
+            <Setter Property="Foreground" Value="white"/>
+        </Style>
+
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#272537"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+            
+        <Style TargetType="MenuItem">
+            <Setter Property="Background" Value="#272537"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
         
-        </ResourceDictionary>
+    </ResourceDictionary>
   </Application.Resources>
 </Application>

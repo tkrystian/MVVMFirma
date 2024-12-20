@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MVVMFirma.ViewModels
+﻿namespace MVVMFirma.ViewModels
 {
-    public class NowaFakturaViewModel:WorkspaceViewModel
+    public class NowaFakturaViewModel : WorkspaceViewModel
     {
-        public NowaFakturaViewModel() {
+        public NowaFakturaViewModel()
+        {
             base.DisplayName = "Faktura";
         }
     }

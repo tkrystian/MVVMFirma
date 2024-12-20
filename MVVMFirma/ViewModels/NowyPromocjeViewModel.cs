@@ -1,19 +1,14 @@
-﻿using MVVMFirma.Helper;
-using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.Validators;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using System.Windows.Markup;
 
 namespace MVVMFirma.ViewModels
 {
     public class NowyPromocjeViewModel : JedenViewModel<Promocje>, IDataErrorInfo
     {
-        public NowyPromocjeViewModel() : base("Nowa Promocja") {
+        public NowyPromocjeViewModel() : base("Nowa Promocja")
+        {
             DataRozpoczecia = DateTime.Now;
             DataZakonczenia = DateTime.Now;
         }

@@ -1,18 +1,14 @@
-﻿using MVVMFirma.Helper;
-using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.Validators;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
     public class NowyHistoriaZamowienViewModel : JedenViewModel<HistoriaZamowien>, IDataErrorInfo
     {
-        public NowyHistoriaZamowienViewModel() : base("Nowa Historia Zamowien") {
+        public NowyHistoriaZamowienViewModel() : base("Nowa Historia Zamowien")
+        {
             Data = DateTime.Now;
         }
 

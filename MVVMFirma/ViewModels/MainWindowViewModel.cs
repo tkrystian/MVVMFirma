@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections.ObjectModel;
+﻿using GalaSoft.MvvmLight.Messaging;
 using MVVMFirma.Helper;
-using System.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows.Data;
-using MVVMFirma.ViewModels;
-using GalaSoft.MvvmLight.Messaging;
 using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
@@ -144,7 +142,8 @@ namespace MVVMFirma.ViewModels
             this.Workspaces.Add(nowy);
             this.SetActiveWorkspace(nowy);
         }
-        private void ShowAll(WorkspaceViewModel nowy) {
+        private void ShowAll(WorkspaceViewModel nowy)
+        {
             WorkspaceViewModel workspace =
                 this.Workspaces.FirstOrDefault(vm => vm.GetType() == nowy.GetType());
 
@@ -186,7 +185,7 @@ namespace MVVMFirma.ViewModels
                 case "RezerwacjeAdd": CreateView(new NowyRezerwacjeViewModel()); break;
                 case "Role PracownikowAdd": CreateView(new NowyRolePracownikowViewModel()); break;
                 case "ZamowieniaAdd": CreateView(new NowyZamowieniaViewModel()); break;
-                    default: break;
+                default: break;
             }
         }
         #endregion

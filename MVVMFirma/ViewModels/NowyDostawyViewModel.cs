@@ -1,23 +1,18 @@
-﻿using MVVMFirma.Helper;
-using MVVMFirma.Models.Entities;
+﻿using MVVMFirma.Models.Entities;
 using MVVMFirma.Models.Validators;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Windows.Input;
-using System.Windows.Markup;
 
 namespace MVVMFirma.ViewModels
 {
     public class NowyDostawyViewModel : JedenViewModel<Dostawy>, IDataErrorInfo
     {
-        public NowyDostawyViewModel() : base("Nowa Dostawa") {
+        public NowyDostawyViewModel() : base("Nowa Dostawa")
+        {
             DataDostawy = DateTime.Now;
         }
 
-        
+
         public string AdresDostawy
         {
             get { return item.AdresDostawy; }
