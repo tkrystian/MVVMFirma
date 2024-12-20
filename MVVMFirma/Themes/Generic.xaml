@@ -15,10 +15,6 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <ToolBar ToolBarTray.IsLocked="True" Margin="0,2,0,2">
-                            <!--<ToggleButton Content="Dodaj" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Edytuj" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Kasuj" Margin="0,2,0,2"/>
-                            <ToggleButton Content="Odswiez" Margin="0,2,0,2"/>-->
                             <ToggleButton Margin="0,2,0,2" Command="{Binding AddCommand}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
@@ -70,7 +66,7 @@
                                     <TextBlock Text=" Zapisz i zamknij" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
-                            <ToggleButton Margin="0,2,0,2">
+                            <ToggleButton Margin="0,2,0,2" Command="{Binding CancelCommand}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
                                     <TextBlock Text=" Anuluj" VerticalAlignment="Center" Foreground="White"/>

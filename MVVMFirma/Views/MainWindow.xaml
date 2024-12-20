@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <!--<RowDefinition Height="40"/>-->
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -28,24 +28,23 @@
             </MenuItem>
             <MenuItem Header="Program"/>
         </Menu>
-        <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="Transparent" ToolBarTray.IsLocked="True">
+        <!--<ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="Transparent" ToolBarTray.IsLocked="True">
             <ToggleButton Width="30" Height="30" Background="Blue" Margin="2" Command="{Binding ShowRestauracjeCommand}">
                 <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" FontSize="16" VerticalAlignment="Center"/>
             </ToggleButton>
             <ToggleButton Width="30" Height="30" Background="Yellow" Margin="2">
                 <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="16" VerticalAlignment="Center"/>
             </ToggleButton>
-        </ToolBar>
-        <Border Grid.Row="2" Grid.Column="0">
+        </ToolBar>-->
+        <Border Grid.Column="0" Grid.Row="1">
             <HeaderedContentControl 
-                Header="Operacje" 
-                Background="Aqua" 
+                Header="Operacje"
                 Content="{Binding Path=Commands}" 
                 ContentTemplate="{StaticResource CommandsTemplate}"
                 Style="{StaticResource MainHCCStyle}"
                 />
         </Border>
-        <Border Grid.Row="2" Grid.Column="1">
+        <Border Grid.Column="1" Grid.Row="1">
             <HeaderedContentControl 
                 Header="Przestrzeń robocza"
                 Content="{Binding Path=Workspaces}"
@@ -53,7 +52,7 @@
                 Style="{StaticResource MainHCCStyle}"
             />
         </Border>
-        <StatusBar Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+        <StatusBar Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
             <StatusBarItem>
                 <TextBlock>Krystian Tarsek</TextBlock>
             </StatusBarItem>

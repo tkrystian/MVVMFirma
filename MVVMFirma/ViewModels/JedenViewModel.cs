@@ -23,6 +23,7 @@ namespace MVVMFirma.ViewModels
 
         #region Command
         private BaseCommand _SaveCommand;
+        private BaseCommand _CancelCommand;
         public ICommand SaveCommand
         {
             get
@@ -30,6 +31,15 @@ namespace MVVMFirma.ViewModels
                 if (_SaveCommand == null)
                     _SaveCommand = new BaseCommand(() => SaveAndClose());
                 return _SaveCommand;
+            }
+        }
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (_CancelCommand == null)
+                    _CancelCommand = new BaseCommand(() => CancelAndClose());
+                return _CancelCommand;
             }
         }
         #endregion
@@ -54,6 +64,14 @@ namespace MVVMFirma.ViewModels
             if (IsValid())
             {
                 Save();
+                OnRequestClose();
+            }
+        }
+        
+        public void CancelAndClose()
+        {
+            if (IsValid())
+            {
                 OnRequestClose();
             }
         }
