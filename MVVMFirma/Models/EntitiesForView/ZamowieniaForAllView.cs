@@ -16,7 +16,7 @@ namespace MVVMFirma.Models.EntitiesForView
         public string RestauracjeMiasto { get; set; }
         public String KlienciImie { get; set; }
         public String KlienciNazwisko { get; set; }
-        public String KlienciTelefon { get; set; }
+        public int KlienciTelefon { get; set; }
 
         public DateTime Data { get; set; }
 

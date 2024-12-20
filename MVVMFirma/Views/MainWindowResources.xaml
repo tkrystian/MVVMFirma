@@ -87,7 +87,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <Border 
-            Background="Blue" 
+            Background="#353340" 
             BorderBrush="LightGray" 
             BorderThickness="1" 
             CornerRadius="5" 
@@ -146,14 +146,14 @@
   side in the main window (the 'Control Panel' area).
   -->
     <DataTemplate x:Key="CommandsTemplate">
-        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,6">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Margin="2,6">
-                        <Button Width="120" Command="{Binding Path=Command}" >
-                            <TextBlock Text="{Binding Path=DisplayName}" TextAlignment="Left" VerticalAlignment="Center"/>
+                    <Grid>
+                        <Button Height="40" Command="{Binding Path=Command}" BorderThickness="0, 0.5" BorderBrush="SteelBlue"  Background="Transparent" >
+                            <TextBlock Text="{Binding Path=DisplayName}" TextAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
                         </Button>
-                    </TextBlock>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -164,7 +164,7 @@
   a tab item with a close button.
   -->
     <DataTemplate x:Key="ClosableTabItemTemplate">
-        <DockPanel Width="120">
+        <DockPanel Width="120" Background="Transparent">
             <Button 
         Command="{Binding Path=CloseCommand}"
         Content="X"
@@ -194,10 +194,9 @@
       IsSynchronizedWithCurrentItem="True" 
       ItemsSource="{Binding}" 
       ItemTemplate="{StaticResource ClosableTabItemTemplate}"
-      Margin="4"
+      Margin="4" Background="#272537"
       />
     </DataTemplate>
-    
-    
-    
+
+
 </ResourceDictionary>

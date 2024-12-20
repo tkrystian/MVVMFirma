@@ -21,26 +21,26 @@
                             <ToggleButton Content="Odswiez" Margin="0,2,0,2"/>-->
                             <ToggleButton Margin="0,2,0,2" Command="{Binding AddCommand}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Dodaj" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Dodaj" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                             <ToggleButton Margin="0,2,0,2">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Edytuj" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE70F;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Edytuj" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                             <ToggleButton Margin="0,2,0,2">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Kasuj" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Kasuj" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                             <ToggleButton Margin="0,2,0,2" Command="{Binding LoadCommand}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72C;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Odśwież" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE72C;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Odśwież" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                         </ToolBar>
@@ -66,14 +66,14 @@
                         <ToolBar Grid.Row="0" ToolBarTray.IsLocked="True" Height="30" Margin="0,2,0,2">
                             <ToggleButton Margin="0,2,0,2" Command="{Binding SaveCommand}">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Zapisz i zamknij" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Zapisz i zamknij" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                             <ToggleButton Margin="0,2,0,2">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;" FontSize="16" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" Anuluj" VerticalAlignment="Center"/>
+                                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE711;" FontSize="16" VerticalAlignment="Center" Foreground="White"/>
+                                    <TextBlock Text=" Anuluj" VerticalAlignment="Center" Foreground="White"/>
                                 </StackPanel>
                             </ToggleButton>
                         </ToolBar>

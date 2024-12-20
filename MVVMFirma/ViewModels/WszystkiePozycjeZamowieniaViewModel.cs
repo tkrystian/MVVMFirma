@@ -24,9 +24,9 @@ namespace MVVMFirma.ViewModels
                    select new PozycjeZamowieniaForAllView
                    {
                        IdPozycjaZamowienia = pozycjeZamowienia.IdPozycjaZamowienia,
-                       ZamowieniaId = pozycjeZamowienia.Zamowienia.IdZamowienia,
-                       MenuNazwa = pozycjeZamowienia.Menu.Nazwa,
-                       MenuCena = pozycjeZamowienia.Menu.Cena,
+                       ZamowieniaId = pozycjeZamowienia.Zamowienia != null ? pozycjeZamowienia.Zamowienia.IdZamowienia : 0,
+                       MenuNazwa = pozycjeZamowienia != null ? pozycjeZamowienia.Menu.Nazwa : "",
+                       MenuCena = pozycjeZamowienia.Menu != null ? pozycjeZamowienia.Menu.Cena : 0,
                        Ilosc = pozycjeZamowienia.Ilosc,
                        Cena = pozycjeZamowienia.Cena,
                    }

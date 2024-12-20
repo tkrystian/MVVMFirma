@@ -37,7 +37,7 @@
           <Property Name="IdKlienta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Imie" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nazwisko" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="Telefon" Type="int" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Menu">
@@ -116,7 +116,7 @@
           <Property Name="Nazwa" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Adres" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Miasto" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Telefon" Type="nvarchar" MaxLength="15" />
+          <Property Name="Telefon" Type="int" Nullable="false" />
           <Property Name="GodzinyOtwarcia" Type="nvarchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Rezerwacje">
@@ -486,7 +486,7 @@
           <Property Name="IdKlienta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Imie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdKlient__6E01572D" FromRole="Klienci" ToRole="Opinie" />
           <NavigationProperty Name="Rezerwacje" Relationship="Self.FK_Rezerwacje_Klienci" FromRole="Klienci" ToRole="Rezerwacje" />
@@ -562,7 +562,7 @@
           <Property Name="Nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Adres" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Miasto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telefon" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" Nullable="false" />
           <Property Name="GodzinyOtwarcia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__IdRestaura__571DF1D5" FromRole="Restauracje" ToRole="Menu" />
           <NavigationProperty Name="Opinie" Relationship="Self.FK__Opinie__IdRestau__6D0D32F4" FromRole="Restauracje" ToRole="Opinie" />

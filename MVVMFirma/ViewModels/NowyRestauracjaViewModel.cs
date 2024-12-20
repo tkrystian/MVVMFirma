@@ -1,14 +1,16 @@
 ﻿using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.Validators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class NowyRestauracjaViewModel : JedenViewModel<Restauracje>
+    public class NowyRestauracjaViewModel : JedenViewModel<Restauracje>, IDataErrorInfo
     {
         public NowyRestauracjaViewModel() : base("Nowa Restauracja") { }
 
@@ -30,7 +32,7 @@ namespace MVVMFirma.ViewModels
             set { item.Miasto = value; OnPropertyChanged(() => Miasto); }
         }
 
-        public string Telefon
+        public int Telefon
         {
             get { return item.Telefon; }
             set { item.Telefon = value; OnPropertyChanged(() => Telefon); }
@@ -41,5 +43,43 @@ namespace MVVMFirma.ViewModels
             get { return item.GodzinyOtwarcia; }
             set { item.GodzinyOtwarcia = value; OnPropertyChanged(() => GodzinyOtwarcia); }
         }
+
+
+        #region Validation
+        public string Error
+        {
+            get { return null; }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "Nazwa")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Nazwa);
+                if (name == "Adres")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Adres);
+                if (name == "Miasto")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Miasto);
+                if (name == "Telefon")
+                    komunikat = BiznesValidator.SprawdzNumerTelefonu(this.Telefon);
+                //if (name == "GodzinyOtwarcia")
+                //    komunikat = BiznesValidator.SprawdzGodziny(this.GodzinyOtwarcia);
+                return komunikat;
+            }
+        }
+        public override bool IsValid()
+        {
+            if (
+                this["Nazwa"] == null && 
+                this["Adres"] == null &&
+                this["Miasto"] == null &&
+                this["Telefon"] == null
+                )
+                return true;
+            return false;
+        }
+
+        #endregion
     }
 }

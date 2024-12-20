@@ -1,14 +1,16 @@
 ﻿using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.Validators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
 
 namespace MVVMFirma.ViewModels
 {
-    public class NowyPracownicyViewModel : JedenViewModel<Pracownicy>
+    public class NowyPracownicyViewModel : JedenViewModel<Pracownicy>, IDataErrorInfo
     {
         public NowyPracownicyViewModel() : base("Nowy Pracownik") { }
 
@@ -30,6 +32,32 @@ namespace MVVMFirma.ViewModels
             get { return item.Stanowisko; }
             set { item.Stanowisko = value; OnPropertyChanged(() => Stanowisko); }
         }
+
+        #region Validation
+        public string Error
+        {
+            get { return null; }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "Imie")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Imie);
+                if (name == "Nazwisko")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Nazwisko);
+                return komunikat;
+            }
+        }
+        public override bool IsValid()
+        {
+            if (this["Imie"] == null && this["Nazwisko"] == null)
+                return true;
+            return false;
+        }
+
+        #endregion
 
     }
 }

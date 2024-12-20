@@ -29,7 +29,7 @@ namespace MVVMFirma.Models.Entities
         public string Nazwa { get; set; }
         public string Adres { get; set; }
         public string Miasto { get; set; }
-        public string Telefon { get; set; }
+        public int Telefon { get; set; }
         public string GodzinyOtwarcia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -25,7 +25,7 @@ namespace MVVMFirma.Models.Entities
         public int IdKlienta { get; set; }
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
-        public string Telefon { get; set; }
+        public int Telefon { get; set; }
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

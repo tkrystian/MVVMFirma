@@ -23,8 +23,8 @@ namespace MVVMFirma.ViewModels
                    select new DostawyForAllView
                    {
                        IdDostawy = dostawy.IdDostawy,
-                       ZamowieniaData = dostawy.Zamowienia.Data,
-                       ZamowieniaSuma = dostawy.Zamowienia.Suma,
+                       ZamowieniaData = dostawy.Zamowienia != null ? dostawy.Zamowienia.Data : default(DateTime),
+                       ZamowieniaSuma = dostawy.Zamowienia != null ? dostawy.Zamowienia.Suma : 0,
                        AdresDostawy = dostawy.AdresDostawy,
                        DataDostawy = dostawy.DataDostawy,
                    }

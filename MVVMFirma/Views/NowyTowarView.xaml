@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              xmlns:local="clr-namespace:MVVMFirma.Views"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="White">
+    <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="200"/>

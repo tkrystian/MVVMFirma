@@ -1,7 +1,9 @@
 ﻿using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.Validators;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
@@ -9,7 +11,7 @@ using System.Windows.Markup;
 
 namespace MVVMFirma.ViewModels
 {
-    public class NowyPromocjeViewModel : JedenViewModel<Promocje>
+    public class NowyPromocjeViewModel : JedenViewModel<Promocje>, IDataErrorInfo
     {
         public NowyPromocjeViewModel() : base("Nowa Promocja") {
             DataRozpoczecia = DateTime.Now;
@@ -41,5 +43,37 @@ namespace MVVMFirma.ViewModels
             set { item.DataZakonczenia = value; OnPropertyChanged(() => DataZakonczenia); }
         }
 
+
+        #region Validation
+        public string Error
+        {
+            get { return null; }
+        }
+        public string this[string name]
+        {
+            get
+            {
+                string komunikat = null;
+                if (name == "Nazwa")
+                    komunikat = StringValidator.SprawdzCzyZaczynaSieZDuzejLitery(this.Nazwa);
+                if (name == "DataRozpoczecia")
+                    komunikat = BiznesValidator.SprawdzDate(this.DataRozpoczecia);
+                if (name == "DataZakonczenia")
+                    komunikat = BiznesValidator.SprawdzDate(this.DataZakonczenia);
+                return komunikat;
+            }
+        }
+        public override bool IsValid()
+        {
+            if (
+                this["Nazwa"] == null &&
+                this["DataRozpoczecia"] == null &&
+                this["DataZakonczenia"] == null
+                )
+                return true;
+            return false;
+        }
+
+        #endregion
     }
 }
